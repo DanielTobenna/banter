@@ -1,0 +1,595 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+<title>R.M Cooper Hoysteds</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+        <link rel="stylesheet" href="{% static 'vendors/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/jquery-ui/jquery-ui.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/jquery-ui/jquery-ui.theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/simple-line-icons/css/simple-line-icons.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/flags-icon/css/flag-icon.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/flag-select/css/flags.css' %}">
+
+
+
+        <link rel="stylesheet"  href="{% static 'vendors/chartjs/Chart.min.css' %}">
+        
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+
+
+
+        <link rel="stylesheet" href="{% static 'vendors/morris/morris.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/weather-icons/css/pe-icon-set-weather.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/chartjs/Chart.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/starrr/starrr.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/ionicons/css/ionicons.min.css' %}">
+        <link rel="stylesheet" href="{% static 'vendors/jquery-jvectormap/jquery-jvectormap-2.0.3.css' %}">
+
+
+
+        <link rel="stylesheet" href="{% static 'css/dashboard_css/main.css' %}">
+
+    </head>
+    <style type="text/css">
+                #preloading_file{
+            height: 10% !important;
+            width: 5% !important;
+        }
+    </style>
+
+
+    <!-- START: Body-->
+    <body id="main-container" class="default">
+
+        <!-- START: Pre Loader-->
+
+        <div class="se-pre-con">     
+         <img id="preloading_file" class="img-fluid" src="{% static 'images/cooper.png' %}" alt="#" />
+
+        </div>
+
+        <!-- END: Pre Loader-->
+
+        <!-- START: Header-->
+        <div id="header-fix" class="header fixed-top">
+            <nav class="navbar navbar-expand-lg  p-0">
+                <div class="navbar-header h4 mb-0 align-self-center logo-bar text-center">
+                    <a href="" class="horizontal-logo text-center">
+                        <span class="h3 align-self-center mb-0 "></span>
+                    </a>
+                </div>
+                <div class="navbar-header h2 mb-0 text-center h-100 collapse-menu-bar">
+                    <a href="#" class="sidebarCollapse" id="collapse"><i class="icon-menu body-color"></i></a>
+                </div>
+
+                <form class="float-left d-none d-lg-block search-form">
+                    <div class="form-group mb-0 position-relative">
+                        <input type="text" class="form-control border-0 rounded bg-search pl-5" placeholder="Search anything...">
+                        <div class="btn-search position-absolute top-0">
+                            <a href="#"><i class="h5 icon-magnifier body-color"></i></a>
+                        </div>
+                        <a href="#" class="position-absolute close-button mobilesearch d-lg-none" data-toggle="dropdown" aria-expanded="false"><i class="icon-close h5"></i>
+                        </a>
+
+                    </div>
+                </form>
+                <div class="navbar-right ml-auto h-100">
+                    <ul class="ml-auto p-0 m-0 list-unstyled d-flex top-icon h-100">
+                        <li class="d-inline-block align-self-center  d-block d-lg-none">
+                            <a href="#" class="nav-link mobilesearch" data-toggle="dropdown" aria-expanded="false"><i class="icon-magnifier h4"></i>
+                            </a>
+                        </li>
+                        <li class="d-inline-block align-self-center">
+                            <div id="options" data-input-name="country2"  data-selected-country="US"></div>
+                        </li>
+                        <li class="dropdown align-self-center">
+                            <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false"><i class="icon-reload h4"></i>
+                                <span class="badge badge-default"> <span class="ring">
+                                    </span><span class="ring-point">
+                                    </span> </span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right border  py-0">
+                                <li>
+                                    <a class="dropdown-item px-2 py-2 border border-top-0 border-left-0 border-right-0" href="#">
+                                        <div class="media">
+                                            <img src="{% static 'images/dashboard_images/author.jpg' %}" alt="" class="d-flex mr-3 img-fluid rounded-circle">
+                                            <div class="media-body">
+                                                <h6 class="mb-0">Mark</h6>
+                                                <span class="text-warning">Contact your agent.</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li><a class="dropdown-item text-center py-2" href="#"> <strong>See All agents <i class="icon-arrow-right pl-2 small"></i></strong></a></li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown align-self-center d-inline-block">
+                            <ul class="dropdown-menu dropdown-menu-right border   py-0">
+                                <li>
+                                    <a class="dropdown-item px-2 py-2 border border-top-0 border-left-0 border-right-0" href="#">
+                                        <div class="media">
+                                            <img src="{% static 'images/dashboard_images/author.jpg' %}" alt="" class="d-flex mr-3 img-fluid rounded-circle w-50">
+                                            <div class="media-body">
+                                                <h6 class="mb-0 text-success">We are exceptional</h6>
+                                                12 min ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li><a class="dropdown-item text-center py-2" href="#"> <strong>Start today <i class="icon-arrow-right pl-2 small"></i></strong></a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- END: Header-->
+
+       <!-- START: Main Menu-->
+        <div class="sidebar">
+            <div class="media d-block text-center user-profile">
+                <img class="img-fluid" src="{{request.user.customer.profile_picUrl}}" alt="">
+                <div class="media-body text-center mt-0 color-primary mt-2">
+                        <a href="#" class="nav-link py-0" data-toggle="dropdown" aria-expanded="false"> 
+                            <h6 class="mb-0 font-weight-bold">{{request.user.username}}, Do you know that making investments is the best thing that can happen to anyone?</h6>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right p-0" style="">
+                            <a href="#" class="dropdown-item px-2 align-self-center d-flex">
+                                <span class="icon-pencil mr-2 h6 mb-0"></span> Edit Profile</a>
+                            <a href="#" class="dropdown-item px-2 align-self-center d-flex">
+                                <span class="icon-user mr-2 h6 mb-0"></span> View Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item px-2 align-self-center d-flex">
+                                <span class="icon-support mr-2 h6  mb-0"></span> Help Center</a>
+                            <a href="#" class="dropdown-item px-2 align-self-center d-flex">
+                                <span class="icon-globe mr-2 h6 mb-0"></span> Forum</a>
+                            <a href="#" class="dropdown-item px-2 align-self-center d-flex">
+                                <span class="icon-settings mr-2 h6 mb-0"></span> Account Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item px-2 text-danger align-self-center d-flex">
+                                <span class="icon-logout mr-2 h6  mb-0"></span> Sign Out</a>
+                        </div>
+                </div>
+            </div>
+            
+            <!-- START: Menu-->
+            <ul id="side-menu" class="sidebar-menu">
+                <li class="dropdown active"><a href="{% url 'dashboard' %}">Dashboard</a>
+                    <ul>
+                        <li class="active"><a href=""><i class="icon-rocket"></i> Dashboard</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#">Know more</a>
+                    <ul>
+                        <li><a href="{% url 'about' %}"><i class="icon-support"></i> About</a></li>
+                        <li><a href="{% url 'account_settings' %}"><i class="icon-support"></i> Account settings</a></li>
+                        <li class="dropdown"><a href="#"><i class="icon-envelope"></i>Transactions</a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'plans' %}"><i class="icon-envelope"></i> Plans</a></li>
+                                <li><a href="{% url 'depositeform' %}"><i class="icon-envelope"></i> Deposite</a></li>
+                                <li><a href="{% url 'requestwithdrawal' %}"><i class="icon-eye"></i> Request withdrawal</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#">Pages</a>
+                    <ul>
+                        <li class="dropdown"><a href="#"><i class="icon-book-open"></i>Other Pages</a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'logout' %}"><i class="icon-login"></i> logout</a></li>
+                                <li><a href="{% url 'contact' %}"><i class="icon-wrench"></i> Contact us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- END: Menu-->
+        </div>
+        <!-- END: Main Menu-->
+
+        <!-- START: Main Content-->
+        <main>
+            <div class="container-fluid">
+                <!-- START: Breadcrumbs-->
+                <div class="row">
+                    <div class="col-12  align-self-center">
+                        <div class="sub-header mt-3 py-3 px-3 align-self-center d-sm-flex w-100 rounded">
+                            <div class="w-sm-100 mr-auto"><h4 class="mb-0">Dashboard</h4> <b>Welcome {{request.user.username}}.</b></div>
+
+                            <ol class="breadcrumb bg-transparent align-self-center m-0 p-0">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                                <li class="breadcrumb-item active">Dashboard</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: Breadcrumbs-->
+
+                <!-- START: Card Data-->
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-xl-3 mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class='d-flex px-0 px-lg-2 py-2 align-self-center'>
+                                    <span class="card-liner-icon mt-1">$</span>
+                                    <div class='card-liner-content'>
+                                    
+                                        <h2 class="card-liner-title">${{investment.withdrawal}}</h2>
+                                    
+                                        <h6 class="card-liner-subtitle">Total withdrawal</h6>
+                                    </div>
+                                </div>
+                                <span class="bg-primary card-liner-absolute-icon text-white card-liner-small-tip"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-xl-3 mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class='d-flex px-0 px-lg-2 py-2 align-self-center'>
+                                    <span class="card-liner-icon mt-1">$</span>
+                                    <div class='card-liner-content'>
+                                    
+                                        <h2 class="card-liner-title">${{investment.totaldeposite}}</h2>
+                                    
+                                        <h6 class="card-liner-subtitle">Total deposite</h6>
+                                    </div>
+                                </div>
+                                <span class="bg-primary card-liner-absolute-icon text-white card-liner-small-tip">+4.8%</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-xl-3 mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class='d-flex px-0 px-lg-2 py-2 align-self-center'>
+                                    <span class="card-liner-icon mt-1">$</span>
+                                    <div class='card-liner-content'>
+                                        <h2 class="card-liner-title">${{investment.deposite}}</h2>
+                                    
+                                        <h6 class="card-liner-subtitle">Active deposite</h6>
+                                    </div>
+                                </div>
+                                <span class="bg-primary card-liner-absolute-icon text-white card-liner-small-tip">+4.8%</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-xl-3 mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class='d-flex px-0 px-lg-2 py-2 align-self-center'>
+                                    <span class="card-liner-icon mt-1">$</span>
+                                    <div class='card-liner-content'>
+                                
+                                        <h2 class="card-liner-title">${{investment.balance}}</h2>
+                
+                                        <h6 class="card-liner-subtitle">Your balance</h6>
+                                    </div>
+                                </div>
+                                <i class="icon-refresh icons card-liner-absolute-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-xl-3 mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class='d-flex px-0 px-lg-2 py-2 align-self-center'>
+                                    <span class="card-liner-icon mt-1">$</span>
+                                    <div class='card-liner-content'>
+                                        <h2 class="card-liner-title">${{investment.profit}}</h2>
+            
+                                        <h6 class="card-liner-subtitle">Your Profit</h6>
+                                    </div>
+                                </div>
+                                <i class="icon-options icons card-liner-absolute-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12  mt-3">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 border-right">
+                                            <div class="card-header pl-0">
+                                                <h4 class="card-title">Sales Report</h4>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="chkbox smallchk">
+                                                    Year
+                                                    <input type="checkbox" >
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <label class="chkbox smallchk ml-2">
+                                                    Month
+                                                    <input checked="checked" type="checkbox" >
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <label class="chkbox smallchk ml-2">
+                                                    Week
+                                                    <input type="checkbox" >
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                            <canvas id="chartjs-line-basic" class="mb-3"></canvas>
+
+                                            <div class="row">
+                                                <div class="col-12 col-md-6">
+                                                    <h6>This Month</h6>
+                                                    <h2 class="mb-0 h1">5,480 <i class="ion ion-arrow-graph-up-right text-success"></i></h2>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <h6>Last Month</h6>
+                                                    <h2 class="mb-0 h1">3,584 <i class="ion ion-arrow-graph-down-right text-danger"></i></h2>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="card-header pl-0">
+                                                <h4 class="card-title">Visitors Report</h4>
+                                            </div>
+                                            <h6 class="card-title mt-3">Top Countries</h6>
+                                            <div class="row">
+                                                <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                                                    <div class="text-center p-2 border">
+                                                        <div class="flag-wrapper mb-0 w-50">
+                                                            <div class="img-thumbnail  flag flag-icon-background flag-icon-us" title="us" id="us">
+                                                            </div>
+                                                        </div>
+                                                        <h6 class="mb-0">2,565</h6>
+                                                        <h6>USA</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-lg-3  mb-2">
+                                                    <div class="text-center p-2 border">
+                                                        <div class="flag-wrapper mb-0 w-50">
+                                                            <div class="img-thumbnail  flag flag-icon-background flag-icon-de" title="de" id="de">
+                                                            </div>
+                                                        </div>
+                                                        <h6 class="mb-0">1,986</h6>
+                                                        <h6>Germany</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-lg-3  mb-2">
+                                                    <div class="text-center p-2 border">
+                                                        <div class="flag-wrapper mb-0 w-50">
+                                                            <div class="img-thumbnail  flag flag-icon-background flag-icon-fr" title="fr" id="fr">
+                                                            </div>
+                                                        </div>
+                                                        <h6 class="mb-0">1,365</h6>
+                                                        <h6>France</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-lg-3  mb-2">
+                                                    <div class="text-center p-2 border">
+                                                        <div class="flag-wrapper mb-0 w-50">
+                                                            <div class="img-thumbnail  flag flag-icon-background flag-icon-in" title="in" id="in">
+                                                            </div>
+                                                        </div>
+                                                        <h6 class="mb-0">965</h6>
+                                                        <h6>India</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <canvas id="chartjs-area-boundary" class="mt-3"></canvas>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12  col-md-6 mt-3">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h4 class="card-title">Coming soon</h4>
+
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body pt-0">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <ul class="tasks">
+
+                                                <li class="task py-3 px-2 d-flex">
+                                                    <label class="chkbox">
+                                                        <input type="checkbox" >
+                                                        <b>The very best IPOs</b>  <br/><span class="text-muted">December 21, 2021</span>
+                                                        <br/>
+                                                        <img src="{% static 'images/dashboard_images/author2.jpg' %}" alt="author" width="30" class="rounded-circle position-absolute"/>
+                                                        <img src="{% static 'images/dashboard_images/author3.jpg' %}" alt="author" width="30" class="rounded-circle position-absolute ml-4"/>
+                                                        <br/>
+                                                        <span class="checkmark mt-2"></span>
+                                                    </label>
+                                                    <div class="ml-auto d-flex"><a href="#"><i class="ion ion-edit"></i></a> <a href="#" class="ml-2"><i class="ion ion-trash-a"></i></a></div>
+                                                </li>
+
+                                                <li class="task py-3 px-2 d-flex">
+                                                    <label class="chkbox">
+                                                        <input type="checkbox" >
+                                                        <b>Bonus on all accounts</b>  <br/><span class="text-muted">December 25, 2021</span>
+                                                        <br/><img src="{% static 'images/dashboard_images/author6.jpg' %}" alt="author" width="30" class="rounded-circle position-absolute"/>
+                                                        <img src="{% static 'images/dashboard_images/author8.jpg' %}" alt="author" width="30" class="rounded-circle position-absolute ml-4"/>
+                                                        <br/>
+                                                        <span class="checkmark mt-2"></span>
+                                                    </label>
+                                                    <div class="ml-auto d-flex"><a href="#"><i class="ion ion-edit"></i></a> <a href="#" class="ml-2"><i class="ion ion-trash-a"></i></a></div>
+                                                </li>
+                                                <li class="task py-3 px-2 d-flex border-0">
+                                                    <label class="chkbox">
+                                                        <input type="checkbox" >
+                                                        <b>Public live meeting for the way forward</b>  <br/><span class="text-muted">June 12, 2021</span>
+                                                        <br/><img src="{% static 'images/dashboard_images/author.jpg' %}" alt="author" width="30" class="rounded-circle position-absolute"/>
+                                                        <img src="{% static 'images/dashboard_images/author8.jpg' %}" alt="author" width="30" class="rounded-circle position-absolute ml-4"/>
+                                                        <br/>
+                                                        <span class="checkmark mt-2"></span>
+                                                    </label>
+                                                    <div class="ml-auto d-flex"><a href="#"><i class="ion ion-edit"></i></a> <a href="#" class="ml-2"><i class="ion ion-trash-a"></i></a></div>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12  col-md-6 mt-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Top Investors</h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body pt-0">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <ul class="activities mt-3 mb-2">
+                                                <li class="activity py-2 border-left">
+                                                    <div class="activity-absolute">
+                                                        <div class="absolute-circle dropbox"><i class="fab fa-dropbox"></i></div>
+                                                        <img src="{% static 'images/dashboard_images/author8.jpg' %}" alt="author" width="50" class="rounded-circle position-absolute ml-35"/>
+                                                    </div>
+
+                                                    <p> <span class="text-primary font-weight-bold">Mark Pearson</span><br/>
+                                                        <span class="text-muted">$90,000,000</span><br/><br/>
+                                                </li>
+                                                <li class="activity py-2 border-left">
+                                                    <div class="activity-absolute">
+                                                        <div class="absolute-circle galleries"><i class="far fa-images"></i></div>
+                                                        <img src="{% static 'images/dashboard_images/author6.jpg' %}" alt="author" width="50" class="rounded-circle position-absolute ml-35"/>
+                                                    </div>
+
+                                                    <p> <span class="text-primary font-weight-bold">Sean Gregory</span><br/>
+                                                        <span class="text-muted">$55,000,000</span><br/><br/>
+                                                </li>
+                                                <li class="activity py-2 border-left">
+                                                    <div class="activity-absolute">
+                                                        <div class="absolute-circle comments"><i class="far fa-comments"></i></div>
+                                                        <img src="{% static 'images/dashboard_images/author8.jpg' %}" alt="author" width="50" class="rounded-circle position-absolute ml-35"/>
+                                                    </div>
+
+                                                    <p> <span class="text-primary font-weight-bold">Luther Chapman</span><br/>
+                                                        <span class="text-muted">$54,000,000</span><br/><br/>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4 mt-3">
+                        <div class="card">
+                            <img class="card-img-top" src="{% static 'images/dashboard_images/chip.jpg' %}" alt="Card image cap">
+                            <div class="card-body bg-primary">
+                                <div class="media d-block text-left py-4 text-white">
+                                    <div class="media-body align-self-center mt-0 d-flex">
+                                        <img class="rounded-circle mr-2" src="{% static 'images/dashboard_images/author2.jpg' %}" alt="" width="35" height="35">
+                                        <div class="message-content">
+                                            <h6 class="mb-0 font-weight-bold">Luther Chapman</h6>
+                                            <small>A year ago</small>
+                                        </div>
+                                        <div class="new-message ml-auto d-flex">
+                                            <a href="#" class="white-circle"><i class="fas fa-heart"></i></a>
+                                            <a href="#" class="white-circle ml-2"><i class="fas fa-share-alt"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="my-3 small">
+                                        <i class="fas  fa-eye"></i> 5241 <i class="fas ml-3  fa-heart"></i> 342
+                                    </div>
+                                    <h5>For someone who has nothing like me once upon a time. This is your oppturnity</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-8 mt-3">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div id="world-map-gdp" class="w-100 height-350" style="height:393px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END: Card DATA-->
+            </div>
+        </main>
+        <!-- END: Content-->
+
+
+
+        <!-- START: Back to top-->
+        <a href="#" class="scrollup text-center">
+            <i class="icon-arrow-up"></i>
+        </a>
+        <!-- END: Back to top-->
+
+
+
+        <!-- START: Template JS-->
+        <script src="{% static 'vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+        <script src="{% static 'vendors/moment/moment.js' %}"></script>
+        <script src="{% static 'vendors/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'vendors/slimscroll/jquery.slimscroll.min.js' %}"></script>
+        <script src="{% static 'vendors/flag-select/js/jquery.flagstrap.min.js' %}"></script>
+        <!-- END: Template JS-->
+
+        <!-- START: APP JS-->
+        <script src="{% static 'js/dashboard_js/app.js' %}"></script>
+        <!-- END: APP JS-->
+
+        <!-- START: Page Vendor JS-->
+        <script src="{% static 'vendors/raphael/raphael.min.js' %}"></script>
+        <script src="{% static 'vendors/morris/morris.min.js' %}"></script>
+        <script src="{% static 'vendors/chartjs/Chart.min.js' %}"></script>
+        <script src="{% static 'vendors/starrr/starrr.js' %}"></script>
+        <script src="{% static 'vendors/jquery-flot/jquery.canvaswrapper.js' %}"></script>
+        <script src="{% static 'vendors/jquery-flot/jquery.colorhelpers.js' %}"></script>
+        <script src="{% static 'vendors/jquery-flot/jquery.flot.js' %}"></script>
+        <script src="{% static 'vendors/jquery-flot/jquery.flot.saturated.js' %}"></script>
+        <script src="{% static 'vendors/jquery-flot/jquery.flot.browser.js' %}"></script>
+        <script src="{% static 'vendors/jquery-flot/jquery.flot.drawSeries.js' %}"></script>
+        <script src="{% static 'vendors/jquery-flot/jquery.flot.uiConstants.js' %}"></script>
+        <script src="{% static 'vendors/jquery-flot/jquery.flot.legend.js' %}"></script>
+        <script src="{% static 'vendors/jquery-flot/jquery.flot.pie.js' %}"></script>
+        <script src="{% static 'vendors/chartjs/Chart.min.js' %}"></script>
+        <script src="{% static 'vendors/jquery-jvectormap/jquery-jvectormap-2.0.3.min.js' %}"></script>
+        <script src="{% static 'vendors/jquery-jvectormap/jquery-jvectormap-world-mill.js' %}"></script>
+        <script src="{% static 'vendors/jquery-jvectormap/jquery-jvectormap-de-merc.js' %}"></script>
+        <script src="{% static 'vendors/jquery-jvectormap/jquery-jvectormap-us-aea.js' %}"></script>
+        <!-- END: Page Vendor JS-->
+
+        <!-- START: Page JS-->
+        <script src="{% static 'js/dashboard_js/home.script.js' %}"></script>
+        <!-- END: Page JS-->
+    </body>
+    <!-- END: Body-->
+</html>
